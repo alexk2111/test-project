@@ -5,7 +5,9 @@ import { DriversRoutingModule } from './drivers-routing.module';
 import { DriversComponent } from './drivers.component';
 
 @NgModule({
-  declarations: [DriversComponent],
+  declarations: [
+    DriversComponent
+  ],
   imports: [
     CommonModule,
     DriversRoutingModule
