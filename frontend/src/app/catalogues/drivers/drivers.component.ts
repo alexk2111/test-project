@@ -8,6 +8,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   templateUrl: './drivers.component.html',
   styleUrls: ['./drivers.component.css']
 })
+
 export class DriversComponent implements OnInit {
   drivers: Array<Driver> | null = null;
   error: string;
@@ -16,7 +17,8 @@ export class DriversComponent implements OnInit {
     private route: ActivatedRoute,
     private driversService: DriversService,
     private router: Router
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.loadDrivers();
@@ -24,17 +26,13 @@ export class DriversComponent implements OnInit {
 
   loadDrivers() {
     this.driversService.getDrivers().subscribe((drivers: Array<any>) => {
-        this.drivers = drivers.map(item => new Driver(item));
-      }
-      // , error => {
-      //   this.error = error;
-      // }
-    );
+      this.drivers = drivers.map(item => new Driver(item));
+    });
   }
 
   deleteDriver(id) {
     this.driversService.deleteDriver(id).subscribe(() => {
-      this.router.navigate(['/drivers']);
+      this.loadDrivers();
     }, (err) => {
       console.log(err);
     })

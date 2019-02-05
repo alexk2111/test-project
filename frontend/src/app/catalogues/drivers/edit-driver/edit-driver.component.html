@@ -1,0 +1,15 @@
+<p>
+  edit-driver works!
+</p>
+<div>
+  <div>
+    <label>Id: </label>{{ driver.id }}</div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="driver.name" placeholder="name"/>
+  </div>
+  <p>
+    <button (click)="updateDriver(driver)">Save</button>
+  </p>
+
+</div>

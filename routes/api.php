@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'drivers'], function(){
     Route::get('','Api\DriversController@index');
+    Route::get('show/{id}','Api\DriversController@show');
     Route::delete('destroy/{id}','Api\DriversController@destroy');
     Route::post('update/{id?}','Api\DriversController@update');
 

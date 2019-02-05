@@ -1,6 +1,9 @@
 <p>
   drivers works!
 </p>
+<p align="right">
+  <button class="edit" title="NewDriver" routerLink="./new-driver">New</button>
+</p>
 <h1 align="center">Drivers</h1>
 <table align="center">
   <tr>
@@ -9,10 +12,10 @@
   </tr>
   <tr *ngFor="let driver of drivers">
     <td>{{driver.id}}</td>
-    <td><a routerLink="/edit/{{driver.id}}">{{driver.name}}</a></td>
+    <td><a [routerLink]="['./edit-driver', driver.id]">{{driver.name}}</a></td>
     <td>
-      <!--<a (click)="deleteDriver(driver.id)">_X_</a>-->
-      <button class="delete" title="delete" (click)="deleteDriver(driver.id)">x</button>
+      <button class="edit" title="edit" [routerLink]="['./edit-driver', driver.id]">E</button>
+      <button class="delete" title="delete" (click)="deleteDriver(driver.id)">X</button>
     </td>
   </tr>
 
