@@ -1,0 +1,14 @@
+<p>
+  edit-route works!
+</p>
+<div *ngIf="route as eRoute">
+  <div>
+    <label>Id: </label>{{ eRoute.id }}</div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="eRoute.name" placeholder="name"/>
+  </div>
+  <p>
+    <button (click)="updateRoute(eRoute)">Save</button>
+  </p>
+</div>
