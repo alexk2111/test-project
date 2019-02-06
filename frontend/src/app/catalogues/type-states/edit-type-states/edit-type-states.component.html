@@ -1,0 +1,14 @@
+<p>
+  edit-type-states works!
+</p>
+<div *ngIf="typeState as etypeState">
+  <div>
+    <label>Id: </label>{{ etypeState.id }}</div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="etypeState.name" placeholder="name"/>
+  </div>
+  <p>
+    <button (click)="updateTypeState(etypeState)">Save</button>
+  </p>
+</div>

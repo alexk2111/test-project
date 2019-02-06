@@ -1,0 +1,14 @@
+<p>
+  edit-type-car works!
+</p>
+<div *ngIf="typeCar as eTypeCar">
+  <div>
+    <label>Id: </label>{{ eTypeCar.id }}</div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="eTypeCar.name" placeholder="name"/>
+  </div>
+  <p>
+    <button (click)="updateTypeCar(eTypeCar)">Save</button>
+  </p>
+</div>
