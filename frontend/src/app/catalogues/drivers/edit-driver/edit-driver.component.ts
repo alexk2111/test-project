@@ -37,8 +37,4 @@ export class EditDriverComponent implements OnInit {
       this.router.navigate(['/drivers']);
     });
   }
-
-  createDriver(driver){
-
-  }
 }

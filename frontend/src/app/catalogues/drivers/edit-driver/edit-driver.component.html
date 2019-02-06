@@ -1,15 +1,14 @@
 <p>
   edit-driver works!
 </p>
-<div>
+<div *ngIf="driver as eDriver">
   <div>
-    <label>Id: </label>{{ driver.id }}</div>
+    <label>Id: </label>{{ eDriver.id }}</div>
   <div>
     <label>Name: </label>
-    <input [(ngModel)]="driver.name" placeholder="name"/>
+    <input [(ngModel)]="eDriver.name" placeholder="name"/>
   </div>
   <p>
-    <button (click)="updateDriver(driver)">Save</button>
+    <button (click)="updateDriver(eDriver)">Save</button>
   </p>
-
 </div>

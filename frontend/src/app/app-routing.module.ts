@@ -11,16 +11,16 @@ const routes: Routes = [
     loadChildren: './catalogues/routes/routes.module#RoutesModule',
   },
   {
-    path: 'cars',
-    loadChildren: './catalogues/cars/cars.module#CarsModule',
+    path: 'type-cars',
+    loadChildren: './catalogues/type-cars/type-cars.module#TypeCarsModule',
   },
   {
-    path: 'states',
-    loadChildren: './catalogues/states/states.module#StatesModule',
+    path: 'type-states',
+    loadChildren: './catalogues/type-states/type-states.module#TypeStatesModule',
   },
   {
-    path: 'statuses',
-    loadChildren: './catalogues/statuses/statuses.module#StatusesModule',
+    path: 'type-statuses',
+    loadChildren: './catalogues/type-statuses/type-statuses.module#TypeStatusesModule',
   },
 ];
 

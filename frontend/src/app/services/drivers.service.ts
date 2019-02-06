@@ -34,7 +34,6 @@ export class DriversService {
 
   newDriver(driver: Driver) {
     const body = {name: driver.name};
-    console.log(body);
     return this.http.post(this.url + "/update", body, this.options);
   }
 }

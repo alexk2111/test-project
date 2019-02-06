@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+
 import {DriversComponent} from "./drivers.component";
 import {EditDriverComponent} from "./edit-driver/edit-driver.component";
 import {NewDriverComponent} from "./new-driver/new-driver.component";

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 import {Driver} from "../../../models/driver";
 import {DriversService} from '../../../services/drivers.service';
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-new-driver',
@@ -19,7 +19,6 @@ export class NewDriverComponent implements OnInit {
 
   ngOnInit() {
     this.driver = new Driver({id: null, name: null});
-    console.log(this.driver);
   }
 
   saveDriver(driver: Driver){
