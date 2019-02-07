@@ -42,8 +42,6 @@ class OnRouteEmail extends Notification
      */
     public function toMail($notifiable)
     {
-//        print_r($notifiable);
-//        return;
         $drivers = DB::table('drivers')->get();
         $messageBody = new MailMessage;
         foreach($drivers as $driver) {
