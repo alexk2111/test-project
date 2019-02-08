@@ -34,4 +34,27 @@ class Log extends Model
     protected $hidden = [
     ];
 
+    public function autoPark() {
+        return $this->belongsTo(AutoPark::class);
+    }
+
+    public function driver() {
+        return $this->belongsTo(Driver::class);
+    }
+
+    public function route() {
+        return $this->belongsTo(Route::class);
+    }
+
+    public function typeCar() {
+        return $this->belongsTo(TypeCar::class);
+    }
+
+    public function typeState() {
+        return $this->belongsTo(TypeState::class);
+    }
+
+    public function typeStatus() {
+        return $this->belongsTo(TypeStatus::class);
+    }
 }

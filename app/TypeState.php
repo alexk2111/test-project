@@ -29,4 +29,13 @@ class TypeState extends Model
      */
     protected $hidden = [
     ];
+
+    public function autoPark() {
+        return $this->hasMany(AutoPark::class);
+    }
+
+    public function log() {
+        return $this->hasMany(Log::class);
+    }
+
 }

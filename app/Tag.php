@@ -8,6 +8,7 @@ class Tag extends Model
 {
     //
     const FIELD_ID = 'id';
+    const FIELD_AUTO_PARK_ID = 'auto_park_id';
     const FIELD_NAME = 'name';
     const FIELD_UPDATED_AT = 'updated_at';
     const FIELD_CREATED_AT = 'created_at';
@@ -19,6 +20,7 @@ class Tag extends Model
      */
     protected $fillable = [
         self::FIELD_ID,
+        self::FIELD_AUTO_PARK_ID,
         self::FIELD_NAME
     ];
 
@@ -29,4 +31,8 @@ class Tag extends Model
      */
     protected $hidden = [
     ];
+
+    public function autoPark() {
+        return $this->belongsTo(AutoPark::class);
+    }
 }

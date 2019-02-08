@@ -51,3 +51,14 @@ Route::group(['prefix' => 'type-statuses'], function(){
     Route::delete('destroy/{id}','Api\TypeStatusesController@destroy');
     Route::post('update/{id?}','Api\TypeStatusesController@update');
 });
+
+Route::group(['prefix' => 'log'], function(){
+    Route::get('show/{id}','Api\LogsController@show');
+});
+
+Route::group(['prefix' => 'auto-park'], function(){
+    Route::get('','Api\AutoParksController@index');
+//    Route::get('show/{id}','Api\AutoParksController@show');
+//    Route::delete('destroy/{id}','Api\AutoParksController@destroy');
+//    Route::post('update/{id?}','Api\AutoParksController@update');
+});

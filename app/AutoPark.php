@@ -13,7 +13,7 @@ class AutoPark extends Model
     const FIELD_TYPE_CAR_ID = 'type_car_id';
     const FIELD_TYPE_STATE_ID = 'type_state_id';
     const FIELD_TYPE_STATUS_ID = 'type_status_id';
-    const FIELD_TAG_ID  = 'tag_id';
+//    const FIELD_TAG_ID  = 'tag_id';
     const FIELD_UPDATED_AT = 'updated_at';
     const FIELD_CREATED_AT = 'created_at';
 
@@ -26,9 +26,38 @@ class AutoPark extends Model
         self::FIELD_TYPE_CAR_ID,
         self::FIELD_TYPE_STATE_ID,
         self::FIELD_TYPE_STATUS_ID,
-        self::FIELD_TAG_ID,
+//        self::FIELD_TAG_ID,
     ];
 
     protected $hidden = [
     ];
+
+    public function driver() {
+        return $this->belongsTo(Driver::class);
+    }
+
+    public function route() {
+        return $this->belongsTo(Route::class);
+    }
+
+    public function typeCar() {
+        return $this->belongsTo(TypeCar::class);
+    }
+
+    public function typeState() {
+        return $this->belongsTo(TypeState::class);
+    }
+
+    public function typeStatus() {
+        return $this->belongsTo(TypeStatus::class);
+    }
+
+    public function tags() {
+        return $this->hasMany(Tag::class);
+    }
+    public function logs() {
+        return $this->hasMany(Log::class);
+    }
+
+
 }
