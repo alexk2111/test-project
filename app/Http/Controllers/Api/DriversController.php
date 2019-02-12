@@ -98,6 +98,6 @@ class DriversController extends Controller
     {
         //Delete driver
         Driver::destroy($id);
-        return response()->json(('success'), 200);;
+        return response()->json(('success'), 200);
     }
 }

@@ -56,9 +56,9 @@ Route::group(['prefix' => 'log'], function(){
     Route::get('show/{id}','Api\LogsController@show');
 });
 
-Route::group(['prefix' => 'auto-park'], function(){
+Route::group(['prefix' => 'auto-parks'], function(){
     Route::get('','Api\AutoParksController@index');
-//    Route::get('show/{id}','Api\AutoParksController@show');
-//    Route::delete('destroy/{id}','Api\AutoParksController@destroy');
-//    Route::post('update/{id?}','Api\AutoParksController@update');
+    Route::get('show/{id}','Api\AutoParksController@show');
+    Route::delete('destroy/{id}','Api\AutoParksController@destroy');
+    Route::post('update/{id?}','Api\AutoParksController@update');
 });

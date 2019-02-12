@@ -3,6 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/auto-park', pathMatch: 'full'
+  },
+  {
+    path: 'auto-park',
+    loadChildren: './auto-park/auto-park.module#AutoParkModule',
+  },
+  {
     path: 'drivers',
     loadChildren: './catalogues/drivers/drivers.module#DriversModule',
   },
