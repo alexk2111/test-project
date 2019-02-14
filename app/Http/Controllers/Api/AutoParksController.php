@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\AutoPark;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class AutoParksController extends Controller
 {
@@ -24,7 +25,32 @@ class AutoParksController extends Controller
 
     public function update(Request $request, $id = null)
     {
+        if (!$autoPark = AutoPark::find($id)) {
+            $autoPark = new AutoPark();
+        }
+        Validator::make($request->all(), [
+            AutoPark::FIELD_NAME => 'required',
+            AutoPark::FIELD_DRIVER_ID  => 'required',
+            AutoPark::FIELD_ROUTE_ID  => 'required',
+            AutoPark::FIELD_TYPE_CAR_ID => 'required',
+            AutoPark::FIELD_TYPE_STATE_ID => 'required',
+            AutoPark::FIELD_TYPE_STATUS_ID => 'required',
+        ])->validate();
 
+        $autoPark->fill($request->all([
+            AutoPark::FIELD_NAME,
+            AutoPark::FIELD_DRIVER_ID,
+            AutoPark::FIELD_ROUTE_ID,
+            AutoPark::FIELD_TYPE_CAR_ID,
+            AutoPark::FIELD_TYPE_STATE_ID,
+            AutoPark::FIELD_TYPE_STATUS_ID,
+            AutoPark::FIELD_AGE,
+        ]));
+
+        if ($autoPark->save()) {
+            return response()->json(('success'), 200);
+        }
+        return response()->json(('error'), 400);;
     }
 
 }

@@ -11,6 +11,6 @@ class LogsController extends Controller
 {
     public function show($id)
     {
-        return response()->json((Log::where(Log::FIELD_AUTO_PARK_ID, $id)->get()), 200);
+        return response()->json((Log::with('autoPark', 'driver', 'route', 'typeCar', 'typeState', 'typeStatus')->where(Log::FIELD_AUTO_PARK_ID, $id)->get()), 200);
     }
 }

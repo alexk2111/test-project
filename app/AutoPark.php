@@ -13,9 +13,9 @@ class AutoPark extends Model
     const FIELD_TYPE_CAR_ID = 'type_car_id';
     const FIELD_TYPE_STATE_ID = 'type_state_id';
     const FIELD_TYPE_STATUS_ID = 'type_status_id';
-//    const FIELD_TAG_ID  = 'tag_id';
     const FIELD_UPDATED_AT = 'updated_at';
     const FIELD_CREATED_AT = 'created_at';
+    const FIELD_AGE = 'age';
 
     //
     protected $fillable = [
@@ -26,7 +26,7 @@ class AutoPark extends Model
         self::FIELD_TYPE_CAR_ID,
         self::FIELD_TYPE_STATE_ID,
         self::FIELD_TYPE_STATUS_ID,
-//        self::FIELD_TAG_ID,
+        self::FIELD_AGE,
     ];
 
     protected $hidden = [

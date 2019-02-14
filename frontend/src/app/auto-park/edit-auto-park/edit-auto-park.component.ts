@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {AutoPark} from "../../models/auto-park";
-import {AutoParkService} from "../../services/auto-park.service";
-import {ActivatedRoute, Params, Router} from "@angular/router";
-import {Driver} from "../../models/driver";
-import {DriversService} from "../../services/drivers.service";
+import { AutoPark } from "../../models/auto-park";
+import { AutoParkService } from "../../services/auto-park.service";
+import { ActivatedRoute, Params, Router } from "@angular/router";
+import { Driver } from "../../models/driver";
+import { DriversService } from "../../services/drivers.service";
 import { RoutesService } from "../../services/routes.service";
 import { Route } from "../../models/route";
 import { TypeCar } from "../../models/type-car";
 import { TypeCarsService } from "../../services/type-cars.service";
-import {TypeState} from "../../models/type-states";
-import {TypeStatus} from "../../models/type-statuses";
-import {TypeStatesService} from "../../services/type-states.service";
-import {TypeStatusesService} from "../../services/type-statuses.service";
+import { TypeState } from "../../models/type-states";
+import { TypeStatus } from "../../models/type-statuses";
+import { TypeStatesService } from "../../services/type-states.service";
+import { TypeStatusesService } from "../../services/type-statuses.service";
 
 
 @Component({
@@ -59,7 +59,6 @@ export class EditAutoParkComponent implements OnInit {
   }
 
   updateAutoPark(autoPark){
-    console.log(autoPark);
     this.autoParkService.updateAutoPark(autoPark).subscribe(() => {
       this.router.navigate(['/auto-park']);
     });

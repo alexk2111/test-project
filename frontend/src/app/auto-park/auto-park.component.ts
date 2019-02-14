@@ -33,4 +33,8 @@ export class AutoParkComponent implements OnInit {
       console.log(err);
     })
   }
+
+  viewLogAutoPark(id) {
+
+  }
 }

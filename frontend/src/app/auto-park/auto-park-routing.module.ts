@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AutoParkComponent} from "./auto-park.component";
-import {EditAutoParkComponent} from "./edit-auto-park/edit-auto-park.component";
-import {NewAutoParkComponent} from "./new-auto-park/new-auto-park.component";
+import { AutoParkComponent } from "./auto-park.component";
+import { EditAutoParkComponent } from "./edit-auto-park/edit-auto-park.component";
+import { NewAutoParkComponent } from "./new-auto-park/new-auto-park.component";
+import {LogAutoParkComponent} from "./log-auto-park/log-auto-park.component";
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'new-auto-park',
     component: NewAutoParkComponent,
+  },
+  {
+    path: 'log-auto-park/:id',
+    component: LogAutoParkComponent,
   },
 ];
 

@@ -1,0 +1,35 @@
+<p>
+  log-auto-park works!
+</p>
+<h1 align="center">Log</h1>
+<div>
+  <table align="center" border="1">
+    <tr>
+      <th>Id</th>
+      <th>AutoParkName</th>
+      <th>DriverName</th>
+      <th>RouteName</th>
+      <th>CarName</th>
+      <th>State</th>
+      <th>Status</th>
+      <th>StartDate</th>
+      <th>FinishDate</th>
+
+    </tr>
+    <tr *ngFor="let log of logs">
+      <td>{{log.id}}</td>
+      <td>{{log.auto_park.name}}</td>
+      <td>{{log.driver.name}}</td>
+      <td>{{log.route.name}}</td>
+      <td>{{log.type_car.name}}</td>
+      <td>{{log.type_state.name}}</td>
+      <td>{{log.type_status.name}}</td>
+      <td>{{log.start_date}}</td>
+      <td>{{log.finish_date}}</td>
+    </tr>
+
+  </table>
+</div>
+<p align="right">
+  <button title="AutoPark" routerLink="/auto-park">Back</button>
+</p>

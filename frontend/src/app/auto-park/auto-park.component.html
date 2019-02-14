@@ -30,6 +30,7 @@
       <td>
         <button class="edit" title="edit" [routerLink]="['./edit-auto-park', autoPark.id]">E</button>
         <button class="delete" title="delete" (click)="deleteAutoPark(autoPark.id)">X</button>
+        <button title="ViewLog" [routerLink]="['./log-auto-park', autoPark.id]">L</button>
       </td>
     </tr>
 
