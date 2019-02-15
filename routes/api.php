@@ -62,3 +62,8 @@ Route::group(['prefix' => 'auto-parks'], function(){
     Route::delete('destroy/{id}','Api\AutoParksController@destroy');
     Route::post('update/{id?}','Api\AutoParksController@update');
 });
+
+Route::group(['prefix' => 'tags'], function(){
+    Route::post('destroy/{id}','Api\TagsController@destroy');
+    Route::post('add-tag','Api\TagsController@addTag');
+});

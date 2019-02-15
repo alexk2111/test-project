@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { AutoPark } from "../../models/auto-park";
-import { AutoParkService } from "../../services/auto-park.service";
-import { ActivatedRoute, Params, Router } from "@angular/router";
-import { Driver } from "../../models/driver";
-import { DriversService } from "../../services/drivers.service";
-import { RoutesService } from "../../services/routes.service";
-import { Route } from "../../models/route";
-import { TypeCar } from "../../models/type-car";
-import { TypeCarsService } from "../../services/type-cars.service";
-import { TypeState } from "../../models/type-states";
-import { TypeStatus } from "../../models/type-statuses";
-import { TypeStatesService } from "../../services/type-states.service";
-import { TypeStatusesService } from "../../services/type-statuses.service";
+import {Component, OnInit} from '@angular/core';
+import {AutoPark} from "../../models/auto-park";
+import {AutoParkService} from "../../services/auto-park.service";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {Driver} from "../../models/driver";
+import {DriversService} from "../../services/drivers.service";
+import {RoutesService} from "../../services/routes.service";
+import {Route} from "../../models/route";
+import {TypeCar} from "../../models/type-car";
+import {TypeCarsService} from "../../services/type-cars.service";
+import {TypeState} from "../../models/type-states";
+import {TypeStatus} from "../../models/type-statuses";
+import {TypeStatesService} from "../../services/type-states.service";
+import {TypeStatusesService} from "../../services/type-statuses.service";
 
 
 @Component({
@@ -27,18 +27,20 @@ export class EditAutoParkComponent implements OnInit {
   typeStates: Array<TypeState>;
   typeStatuses: Array<TypeStatus>;
   id: number;
+  showTagsButton: string;
+  showId:boolean;
 
- constructor(
-   private autoParkService: AutoParkService,
-   private driversService: DriversService,
-   private routesService: RoutesService,
-   private typeCarsService: TypeCarsService,
-   private typeStatesService: TypeStatesService,
-   private typeStatusesService: TypeStatusesService,
-   private route: ActivatedRoute,
-   private router: Router,
-
- ) { }
+  constructor(
+    private autoParkService: AutoParkService,
+    private driversService: DriversService,
+    private routesService: RoutesService,
+    private typeCarsService: TypeCarsService,
+    private typeStatesService: TypeStatesService,
+    private typeStatusesService: TypeStatusesService,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
@@ -50,6 +52,9 @@ export class EditAutoParkComponent implements OnInit {
     this.loadTypeCars();
     this.loadTypeStates();
     this.loadTypeStatuses();
+    this.showTagsButton = 'ShowTags';
+    this.showId = false;
+
   }
 
   loadAutoPark(id) {
@@ -58,7 +63,7 @@ export class EditAutoParkComponent implements OnInit {
     });
   }
 
-  updateAutoPark(autoPark){
+  updateAutoPark(autoPark) {
     this.autoParkService.updateAutoPark(autoPark).subscribe(() => {
       this.router.navigate(['/auto-park']);
     });
@@ -81,14 +86,27 @@ export class EditAutoParkComponent implements OnInit {
       this.typeCars = drivers.map(item => new Driver(item));
     });
   }
+
   loadTypeStates() {
-    this.typeStatesService.getTypeStates().subscribe( (typeStates: Array<any>) => {
+    this.typeStatesService.getTypeStates().subscribe((typeStates: Array<any>) => {
       this.typeStates = typeStates.map(item => new TypeState(item));
     })
   }
+
   loadTypeStatuses() {
     this.typeStatusesService.getTypeStatuses().subscribe((typeStatuses: Array<any>) => {
       this.typeStatuses = typeStatuses.map(item => new TypeStatus(item));
     })
   }
+
+  showHideTags() {
+    if (!this.showId) {
+      this.showTagsButton = 'HideTags';
+    } else {
+      this.showTagsButton = 'ShowTags';
+      this.loadAutoPark(this.autoPark.id);
+    }
+    this.showId = !this.showId;
+  }
+
 }

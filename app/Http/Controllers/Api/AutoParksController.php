@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\AutoPark;
+use App\Log;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -26,8 +28,14 @@ class AutoParksController extends Controller
     public function update(Request $request, $id = null)
     {
         if (!$autoPark = AutoPark::find($id)) {
-            $autoPark = new AutoPark();
+            $autoPark = new AutoPark;
+        } else {
+            if ($log = Log::where('auto_park_id', $id )->where('finish_date', null)->first()){
+                $log->finish_date = Carbon::now('UTC');
+                $log->save();
+            }
         }
+
         Validator::make($request->all(), [
             AutoPark::FIELD_NAME => 'required',
             AutoPark::FIELD_DRIVER_ID  => 'required',
@@ -46,6 +54,16 @@ class AutoParksController extends Controller
             AutoPark::FIELD_TYPE_STATUS_ID,
             AutoPark::FIELD_AGE,
         ]));
+
+        $log = new Log;
+        $log->auto_park_id = $autoPark->id;
+        $log->driver_id = $autoPark->driver_id;
+        $log->route_id = $autoPark->route_id;
+        $log->type_car_id = $autoPark->type_car_id;
+        $log->type_state_id = $autoPark->type_state_id;
+        $log->type_status_id = $autoPark->type_status_id;
+        $log->start_date = Carbon::now('UTC');
+        $log->save();
 
         if ($autoPark->save()) {
             return response()->json(('success'), 200);

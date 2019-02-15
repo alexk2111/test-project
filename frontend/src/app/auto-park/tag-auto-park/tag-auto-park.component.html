@@ -1,0 +1,24 @@
+<p>
+  tag-auto-park works!
+</p>
+<p align="right">
+  <label>Tag: </label>
+  <input [(ngModel)]="newTag" placeholder="name"/>
+  <button class="edit" title="NewTag" (click)="addNewTag(newTag)">Add</button>
+</p>
+<div>
+  <table align="center" border="1">
+    <tr>
+      <!--<th>Id</th>-->
+      <th>Tag</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let tag of autoParkTags.tags">
+      <!--<td>{{tag.id}}</td>-->
+      <td>{{tag.name}}</td>
+      <td>
+        <button class="delete" title="delete" (click)="deleteTag(tag.id)">X</button>
+      </td>
+    </tr>
+  </table>
+</div>
