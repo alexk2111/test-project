@@ -17,6 +17,8 @@ export class AutoParkComponent implements OnInit {
   typeStates: Array<TypeState>;
   typeStatuses: Array<TypeStatus>;
   error: string;
+  filterTypeState: string;
+  filterTypeStatus: string;
 
   constructor(
     private autoParkService: AutoParkService,
@@ -25,9 +27,11 @@ export class AutoParkComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loadAutoPark();
     this.loadTypeStates();
     this.loadTypeStatuses();
-    this.loadAutoPark();
+    // this.filter_type_state = '';
+    // this.filter_type_status = '';
   }
 
   loadAutoPark() {
