@@ -33,8 +33,8 @@ export class TypeCarsComponent implements OnInit {
   deleteTypeCar(id) {
     this.typeCarsService.deleteTypeCar(id).subscribe(() => {
       this.loadTypeCars();
-    }, (err) => {
-      console.log(err);
+    }, error => {
+      alert('Removal is not possible. There are subordinate records !!!');
     })
   }
 }

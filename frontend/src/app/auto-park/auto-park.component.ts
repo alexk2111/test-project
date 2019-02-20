@@ -30,8 +30,6 @@ export class AutoParkComponent implements OnInit {
     this.loadAutoPark();
     this.loadTypeStates();
     this.loadTypeStatuses();
-    // this.filter_type_state = '';
-    // this.filter_type_status = '';
   }
 
   loadAutoPark() {

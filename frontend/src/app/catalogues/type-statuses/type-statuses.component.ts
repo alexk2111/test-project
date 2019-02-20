@@ -30,6 +30,8 @@ export class TypeStatusesComponent implements OnInit {
   deleteTypeStatus(id) {
     this.typeStatusesService.deleteTypeStatus(id).subscribe(() =>{
       this.loadTypeStatuses();
+    }, error => {
+      alert('Removal is not possible. There are subordinate records !!!');
     })
   }
 

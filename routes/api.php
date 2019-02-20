@@ -17,6 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['prefix' => 'auth'],function () {
+    Route::post('login', 'Api\AuthController@login');
+    Route::post('check', 'Api\AuthController@check');
+});
+
 Route::group(['prefix' => 'drivers'], function(){
     Route::get('','Api\DriversController@index');
     Route::get('show/{id}','Api\DriversController@show');

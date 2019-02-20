@@ -33,8 +33,8 @@ export class DriversComponent implements OnInit {
   deleteDriver(id) {
     this.driversService.deleteDriver(id).subscribe(() => {
       this.loadDrivers();
-    }, (err) => {
-      console.log(err);
+    }, error => {
+      alert('Removal is not possible. There are subordinate records !!!');
     })
   }
 }

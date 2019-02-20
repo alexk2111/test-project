@@ -32,8 +32,8 @@ export class RoutesComponent implements OnInit {
   deleteRoute(id) {
     this.routesService.deleteRoute(id).subscribe(() => {
       this.loadRoutes();
-    }, (err) => {
-      console.log(err);
+    }, error => {
+      alert('Removal is not possible. There are subordinate records !!!');
     })
   }
 
