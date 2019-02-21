@@ -1,0 +1,28 @@
+<p>
+  login works!
+</p>
+<h1 align="center">Authentication</h1>
+
+<table align="center" border="1">
+  <tr>
+    <td colspan="2">
+      <div class="alert" role="alert" *ngIf="error">
+        {{error}}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td><input [(ngModel)]="userEmail" placeholder="email"/></td>
+  </tr>
+  <tr>
+    <td>Password:</td>
+    <td><input type="password" [(ngModel)]="userPassword" placeholder="password"/></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <button (click)="login(userEmail, userPassword)">Login</button>
+    </td>
+  </tr>
+</table>
