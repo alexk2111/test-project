@@ -32,4 +32,17 @@ export class LogAutoParkComponent implements OnInit {
     });
   }
 
+  deleteLog(id) {
+
+    this.logsService.deleteLog(id).subscribe(() => {
+      this.loadLogs(this.id);
+    })
+  }
+
+  clearLog() {
+    this.logsService.clearLog(this.id).subscribe(() => {
+      this.loadLogs(this.id);
+    })
+  }
+
 }

@@ -29,14 +29,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            $users = new User;
-            $users->email = 'alexk2111@ukr.net';
+            if (!$users=User::where('name', 'Admin')->get()) {
+                return;
+            }
             Notification::send($users, new OnRouteEmail());
-//            Notification::send($users, new OnRouteEmail($driver));
-            //$driver->notify(new OnRouteEmail('alexk2111@ukr.net'));
         })->everyMinute();
-        // $schedule->command('inspire')
-        //          ->hourly();
     }
 
     /**

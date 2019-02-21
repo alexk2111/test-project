@@ -42,7 +42,7 @@ export class AutoParkComponent implements OnInit {
     this.autoParkService.deleteAutoPark(id).subscribe(() => {
       this.loadAutoPark();
     }, (err) => {
-      console.log(err);
+      alert('Removal is not possible. There are subordinate records !!!');
     })
   }
 

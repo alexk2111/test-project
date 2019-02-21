@@ -59,6 +59,8 @@ Route::group(['prefix' => 'type-statuses'], function(){
 
 Route::group(['prefix' => 'log'], function(){
     Route::get('show/{id}','Api\LogsController@show');
+    Route::post('destroy/{id}','Api\LogsController@destroy');
+    Route::post('clear/{id}','Api\LogsController@clear');
 });
 
 Route::group(['prefix' => 'auto-parks'], function(){

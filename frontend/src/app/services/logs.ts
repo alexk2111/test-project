@@ -17,4 +17,11 @@ export class LogsService {
     return this.http.get(this.url + "/show/" + id, this.options);
   }
 
+  clearLog(id) {
+    return this.http.post(this.url + "/clear/" + id, this.options)
+  }
+
+  deleteLog(id) {
+    return this.http.post(this.url + "/destroy/" + id, this.options)
+  }
 }

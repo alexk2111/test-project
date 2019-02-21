@@ -1,5 +1,5 @@
 <p>
-  log-auto-park works!
+  <!--log-auto-park works!-->
 </p>
 <h1 align="center">Log</h1>
 <div>
@@ -14,6 +14,7 @@
       <th>Status</th>
       <th>StartDate</th>
       <th>FinishDate</th>
+      <th>Action</th>
 
     </tr>
     <tr *ngFor="let log of logs">
@@ -26,10 +27,14 @@
       <td>{{log.type_status.name}}</td>
       <td>{{log.start_date}}</td>
       <td>{{log.finish_date}}</td>
+      <td>
+        <button class="delete" title="Delete" (click)="deleteLog(log.id)">X</button>
+      </td>
     </tr>
 
   </table>
 </div>
 <p align="right">
+  <button class="clear" title="Clear" (click)="clearLog()">Clear</button>
   <button title="AutoPark" routerLink="/auto-park">Back</button>
 </p>
