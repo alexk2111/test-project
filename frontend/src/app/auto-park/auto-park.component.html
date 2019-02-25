@@ -1,69 +1,163 @@
-<p>
-  <!--auto-park works!-->
-</p>
-<p align="right">
-  <button class="edit" title="NewAutoPark" routerLink="./new-auto-park">New</button>
-</p>
-<h1 align="center">AutoPark</h1>
-<div>
-  <table align="center">
-    <td>
-      <tr>
+<!--<p>-->
+<!--auto-park works!-->
+<!--</p>-->
+<div class="row">
+  <div class="col-12">
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div align="right">
+      <button type="button" class="btn btn-outline-secondary" title="NewAutoPark" routerLink="./new-auto-park"> New
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <h1 align="center">AutoPark</h1><br>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-xl-1">
+    <div class="row">
+      <div class="col-12">
         <label>Filters: </label>
-      </tr>
-      <tr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
         <label>State: </label>
         <br>
-        <select [(ngModel)]=filterTypeState>
+        <select class="col-xl-auto" [(ngModel)]=filterTypeState>
           <option value=""></option>
           <option *ngFor="let typeState of typeStates" [ngValue]="typeState.id">
             {{typeState.name}}
           </option>
         </select>
         <br>
-
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
         <label>Status: </label>
         <br>
-        <select [(ngModel)]=filterTypeStatus>
+        <select class="col-xl-auto" [(ngModel)]=filterTypeStatus>
           <option value=""></option>
           <option *ngFor="let typeStatus of typeStatuses" [value]="typeStatus.id">
             {{typeStatus.name}}
           </option>
         </select>
+      </div>
+    </div>
+    <br>
+  </div>
+
+
+
+
+  <div class="col-xl-10">
+    <!--<td>-->
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Driver</th>
+        <th>Route</th>
+        <th>Car</th>
+        <th>State</th>
+        <th>Status</th>
+        <th>Action</th>
       </tr>
-
-    </td>
-    <td>
-      <table align="center" border="1">
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Driver</th>
-          <th>Route</th>
-          <th>Car</th>
-          <th>State</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-        <tr *ngFor="let autoPark of autoParks | statesFilter:filterTypeState | statusesFilter:filterTypeStatus">
+      </thead>
+      <tbody>
+      <tr *ngFor="let autoPark of autoParks | statesFilter:filterTypeState | statusesFilter:filterTypeStatus">
         <!--<tr *ngFor="let autoPark of autoParks">-->
-          <td>{{autoPark.id}}</td>
-          <td>{{autoPark.name}}</td>
-          <td>{{autoPark.age}}</td>
-          <td>{{autoPark.driver.name}}</td>
-          <td>{{autoPark.route.name}}</td>
-          <td>{{autoPark.type_car.name}}</td>
-          <td>{{autoPark.type_state.name}}</td>
-          <td>{{autoPark.type_status.name}}</td>
-          <td>
-            <button class="edit" title="edit" [routerLink]="['./edit-auto-park', autoPark.id]">E</button>
-            <button class="delete" title="delete" (click)="deleteAutoPark(autoPark.id)">X</button>
-            <button title="ViewLog" [routerLink]="['./log-auto-park', autoPark.id]">L</button>
-          </td>
-        </tr>
-
-      </table>
-    </td>
-  </table>
+        <th scope="row">{{autoPark.id}}</th>
+        <td>{{autoPark.name}}</td>
+        <td>{{autoPark.age}}</td>
+        <td>{{autoPark.driver.name}}</td>
+        <td>{{autoPark.route.name}}</td>
+        <td>{{autoPark.type_car.name}}</td>
+        <td>{{autoPark.type_state.name}}</td>
+        <td>{{autoPark.type_status.name}}</td>
+        <td>
+          <button class="edit" title="edit" [routerLink]="['./edit-auto-park', autoPark.id]">E</button>
+          <button class="delete" title="delete" (click)="deleteAutoPark(autoPark.id)">X</button>
+          <button title="ViewLog" [routerLink]="['./log-auto-park', autoPark.id]">L</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <!--</td>-->
+  </div>
 </div>
+
+
+<!--<table align="center">-->
+<!--<td>-->
+<!--<tr>-->
+<!--<label>Filters: </label>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<label>State: </label>-->
+<!--<br>-->
+<!--<select [(ngModel)]=filterTypeState>-->
+<!--<option value=""></option>-->
+<!--<option *ngFor="let typeState of typeStates" [ngValue]="typeState.id">-->
+<!--{{typeState.name}}-->
+<!--</option>-->
+<!--</select>-->
+<!--<br>-->
+
+<!--<label>Status: </label>-->
+<!--<br>-->
+<!--<select [(ngModel)]=filterTypeStatus>-->
+<!--<option value=""></option>-->
+<!--<option *ngFor="let typeStatus of typeStatuses" [value]="typeStatus.id">-->
+<!--{{typeStatus.name}}-->
+<!--</option>-->
+<!--</select>-->
+<!--</tr>-->
+
+<!--</td>-->
+
+<!--<td>-->
+<!--<table align="center" border="1">-->
+<!--<tr>-->
+<!--<th>Id</th>-->
+<!--<th>Name</th>-->
+<!--<th>Age</th>-->
+<!--<th>Driver</th>-->
+<!--<th>Route</th>-->
+<!--<th>Car</th>-->
+<!--<th>State</th>-->
+<!--<th>Status</th>-->
+<!--<th>Action</th>-->
+<!--</tr>-->
+<!--<tr *ngFor="let autoPark of autoParks | statesFilter:filterTypeState | statusesFilter:filterTypeStatus">-->
+<!--&lt;!&ndash;<tr *ngFor="let autoPark of autoParks">&ndash;&gt;-->
+<!--<td>{{autoPark.id}}</td>-->
+<!--<td>{{autoPark.name}}</td>-->
+<!--<td>{{autoPark.age}}</td>-->
+<!--<td>{{autoPark.driver.name}}</td>-->
+<!--<td>{{autoPark.route.name}}</td>-->
+<!--<td>{{autoPark.type_car.name}}</td>-->
+<!--<td>{{autoPark.type_state.name}}</td>-->
+<!--<td>{{autoPark.type_status.name}}</td>-->
+<!--<td>-->
+<!--<button class="edit" title="edit" [routerLink]="['./edit-auto-park', autoPark.id]">E</button>-->
+<!--<button class="delete" title="delete" (click)="deleteAutoPark(autoPark.id)">X</button>-->
+<!--<button title="ViewLog" [routerLink]="['./log-auto-park', autoPark.id]">L</button>-->
+<!--</td>-->
+<!--</tr>-->
+
+<!--</table>-->
+<!--</td>-->
+<!--</table>-->

@@ -1,24 +1,63 @@
-<p>
+<!--<p>-->
   <!--drivers works!-->
-</p>
-<p align="right">
-  <button class="edit" title="NewDriver" routerLink="./new-driver">New</button>
-</p>
-<h1 align="center">Drivers</h1>
-<table align="center">
-  <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Action</th>
-  </tr>
-  <tr *ngFor="let driver of drivers">
-    <td>{{driver.id}}</td>
-    <td><a [routerLink]="['./edit-driver', driver.id]">{{driver.name}}</a></td>
-    <td>
-      <button class="edit" title="edit" [routerLink]="['./edit-driver', driver.id]">E</button>
-      <button class="delete" title="delete" (click)="deleteDriver(driver.id)">X</button>
-    </td>
-  </tr>
+<!--</p>-->
+<div class="row">
+  <div class="col-12">
+    <br>
+  </div>
+</div>
 
-</table>
+<div class="row">
+  <div class="col-12">
+    <div align="right">
+  <button type="button" class="btn btn-outline-secondary" title="NewDriver" routerLink="./new-driver"> New </button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+<h1 align="center">Drivers</h1>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-6">
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let driver of drivers">
+        <th scope="row">{{driver.id}}</th>
+        <td><a [routerLink]="['./edit-driver', driver.id]">{{driver.name}}</a></td>
+        <td>
+          <button class="edit" title="edit" [routerLink]="['./edit-driver', driver.id]">E</button>
+          <button class="delete" title="delete" (click)="deleteDriver(driver.id)">X</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--<table align="center">-->
+  <!--<tr>-->
+    <!--<th>Id</th>-->
+    <!--<th>Name</th>-->
+    <!--<th>Action</th>-->
+  <!--</tr>-->
+  <!--<tr *ngFor="let driver of drivers">-->
+    <!--<td>{{driver.id}}</td>-->
+    <!--<td><a [routerLink]="['./edit-driver', driver.id]">{{driver.name}}</a></td>-->
+    <!--<td>-->
+      <!--<button class="edit" title="edit" [routerLink]="['./edit-driver', driver.id]">E</button>-->
+      <!--<button class="delete" title="delete" (click)="deleteDriver(driver.id)">X</button>-->
+    <!--</td>-->
+  <!--</tr>-->
+<!--</table>-->
 
