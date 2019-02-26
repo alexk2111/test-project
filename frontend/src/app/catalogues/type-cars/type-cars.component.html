@@ -1,24 +1,49 @@
-<p>
-  <!--type-cars works!-->
-</p>
-<p align="right">
-  <button class="edit" title="NewTypeCar" routerLink="./new-type-car">New</button>
-</p>
-<h1 align="center">TypeCar</h1>
-<table align="center">
-  <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Action</th>
-  </tr>
-  <tr *ngFor="let typeCar of typeCars">
-    <td>{{typeCar.id}}</td>
-    <td><a [routerLink]="['./edit-type-car', typeCar.id]">{{typeCar.name}}</a></td>
-    <td>
-      <button class="edit" title="edit" [routerLink]="['./edit-type-car', typeCar.id]">E</button>
-      <button class="delete" title="delete" (click)="deleteTypeCar(typeCar.id)">X</button>
-    </td>
-  </tr>
+<!--<p>-->
+<!--type-cars works!-->
+<!--</p>-->
 
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <br>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-12">
+      <p align="right">
+        <button type="button" class="btn btn-outline-secondary" title="NewTypeCar" routerLink="./new-type-car">New</button>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h1 align="center">TypeCar</h1>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let typeCar of typeCars">
+          <th scope="row">{{typeCar.id}}</th>
+          <td><a [routerLink]="['./edit-type-car', typeCar.id]">{{typeCar.name}}</a></td>
+          <td>
+            <button class="edit" title="edit" [routerLink]="['./edit-type-car', typeCar.id]">E</button>
+            <button class="delete" title="delete" (click)="deleteTypeCar(typeCar.id)">X</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
