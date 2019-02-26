@@ -55,17 +55,17 @@ class AutoParksController extends Controller
             AutoPark::FIELD_AGE,
         ]));
 
-        $log = new Log;
-        $log->auto_park_id = $autoPark->id;
-        $log->driver_id = $autoPark->driver_id;
-        $log->route_id = $autoPark->route_id;
-        $log->type_car_id = $autoPark->type_car_id;
-        $log->type_state_id = $autoPark->type_state_id;
-        $log->type_status_id = $autoPark->type_status_id;
-        $log->start_date = Carbon::now('UTC');
-        $log->save();
-
         if ($autoPark->save()) {
+            $log = new Log;
+            $log->auto_park_id = $autoPark->id;
+            $log->driver_id = $autoPark->driver_id;
+            $log->route_id = $autoPark->route_id;
+            $log->type_car_id = $autoPark->type_car_id;
+            $log->type_state_id = $autoPark->type_state_id;
+            $log->type_status_id = $autoPark->type_status_id;
+            $log->start_date = Carbon::now('UTC');
+            $log->save();
+
             return response()->json(('success'), 200);
         }
         return response()->json(('error'), 400);;

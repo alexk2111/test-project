@@ -1,12 +1,20 @@
-<p>
-  <!--new-driver works!-->
-</p>
-<div>
-  <div>
-    <label>Name: </label>
-    <input [(ngModel)]="driver.name" placeholder="name"/>
+<div class="container">
+  <br>
+  <h1 align="center">New Driver</h1>
+  <br>
+  <div class="row justify-content-center">
+    <div class="col-6">
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="editName">Name: </label>
+        <div class="col-sm-10">
+          <input id="editName" class="form-control" [(ngModel)]="driver.name" placeholder="name"/>
+        </div>
+      </div>
+      <div align="right">
+        <button type="button" class="btn btn-outline-secondary" (click)="saveDriver(driver)">Save</button>
+        <button type="button" class="btn btn-outline-secondary" routerLink="/drivers">Cancel</button>
+      </div>
+    </div>
   </div>
-  <p>
-    <button (click)="saveDriver(driver)">Save</button>
-  </p>
 </div>

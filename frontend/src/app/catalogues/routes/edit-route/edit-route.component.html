@@ -1,14 +1,40 @@
-<p>
-  <!--edit-route works!-->
-</p>
-<div *ngIf="route as eRoute">
-  <div>
-    <label>Id: </label>{{ eRoute.id }}</div>
-  <div>
-    <label>Name: </label>
-    <input [(ngModel)]="eRoute.name" placeholder="name"/>
+<div class="container">
+  <br>
+  <h1 align="center">Edit Route</h1>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div *ngIf="route as eRoute">
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="editId">Id: </label>
+          <div class="col-sm-10">
+            <input type="text" id="editId" class="form-control-plaintext" value={{eRoute.id}} readonly/>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="editName">Name:</label>
+          <div class="col-sm-10">
+            <input id="editName" class="form-control" [(ngModel)]="eRoute.name" placeholder="name"/>
+          </div>
+        </div>
+
+        <div align="right">
+          <button type="button" class="btn btn-outline-secondary"  (click)="updateRoute(eRoute)">Save</button>
+          <button type="button" class="btn btn-outline-secondary"  routerLink="/routes">Cancel</button>
+        </div>
+      </div>
+    </div>
   </div>
-  <p>
-    <button (click)="updateRoute(eRoute)">Save</button>
-  </p>
 </div>
+
+<!--<div *ngIf="route as eRoute">-->
+  <!--<div>-->
+    <!--<label>Id: </label>{{ eRoute.id }}</div>-->
+  <!--<div>-->
+    <!--<label>Name: </label>-->
+    <!--<input [(ngModel)]="eRoute.name" placeholder="name"/>-->
+  <!--</div>-->
+  <!--<p>-->
+    <!--<button (click)="updateRoute(eRoute)">Save</button>-->
+  <!--</p>-->
+<!--</div>-->

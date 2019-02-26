@@ -1,96 +1,111 @@
-<p>
-  <!--edit-auto-park works!-->
-</p>
+<div class="container">
+  <br>
+  <h1 align="center">Edit AutoPark</h1>
 
+  <div *ngIf="autoPark as eAutoPark">
+    <div class="row justify-content-center">
+      <div class="col-6">
 
-<h1 align="center">AutoPark</h1>
-<div *ngIf="autoPark as eAutoPark">
-  <table align="center" border="1">
-    <tr>
-      <th>Field</th>
-      <th>Value</th>
-    </tr>
-    <tr>
-      <td><label>Id: </label></td>
-      <td>{{eAutoPark.id}}</td>
-    </tr>
-    <tr>
-      <td><label>Name: </label></td>
-      <td><input [(ngModel)]="eAutoPark.name" placeholder="name"/></td>
-    </tr>
-    <tr>
-      <td><label>Age: </label></td>
-      <td><input [(ngModel)]="eAutoPark.age" placeholder="age"/></td>
-    </tr>
-    <tr>
-      <td><label>Driver: </label></td>
-      <td>
-        <select [(ngModel)]="eAutoPark.driver_id">
-          <option *ngFor="let driver of drivers" value="{{driver.id}}"
-                  [selected]="driver.id == autoPark.driver_id">
-            {{driver.name}}
-          </option>
-        </select>
-      </td>
-    </tr>
-    <tr>
-      <td><label>Route: </label></td>
-      <td>
-        <select [(ngModel)]="eAutoPark.route_id">
-          <option *ngFor="let route of routes" value="{{route.id}}"
-                  [selected]="route.id == autoPark.route_id ">
-            {{route.name}}
-          </option>
-        </select>
-      </td>
-    </tr>
-    <tr>
-      <td><label>Car: </label></td>
-      <td>
-        <select [(ngModel)]="eAutoPark.type_car_id">
-          <option *ngFor="let typeCar of typeCars" value="{{typeCar.id}}"
-                  [selected]="typeCar.id == autoPark.type_car_id">
-            {{typeCar.name}}
-          </option>
-        </select>
-      </td>
-    </tr>
-    <tr>
-      <td><label>State: </label></td>
-      <td>
-        <select [(ngModel)]="eAutoPark.type_state_id">
-          <option *ngFor="let typeState of typeStates" value="{{typeState.id}}"
-                  [selected]="typeState.id == autoPark.type_state_id">
-            {{typeState.name}}
-          </option>
-        </select>
-      </td>
-    </tr>
-    <tr>
-      <td><label>Status: </label></td>
-      <td>
-        <select [(ngModel)]="eAutoPark.type_status_id">
-          <option *ngFor="let typeStatus of typeStatuses" value="{{typeStatus.id}}"
-                  [selected]="typeStatus.id == autoPark.type_status_id">
-            {{typeStatus.name}}
-          </option>
-        </select>
-      </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td align="right">
-        <button (click)="updateAutoPark(eAutoPark)">Save</button>
-        <button title="AutoPark" routerLink="/auto-park">Cancel</button>
-      </td>
-    </tr>
-  </table>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="editId">Id: </label>
+          <div class="col-sm-10">
+            <input type="text" id="editId" class="form-control-plaintext" value={{eAutoPark.id}} readonly/>
+          </div>
+        </div>
 
-  <p align="right">
-    <button class="edit" title="ShowHideTags" (click)="showHideTags()">{{showTagsButton}}</button>
-  </p>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="editName">Name:</label>
+          <div class="col-sm-10">
+            <input id="editName" class="form-control" [(ngModel)]="eAutoPark.name" placeholder="name"/>
+          </div>
+        </div>
 
-  <div *ngIf="showId">
-    <app-tag-auto-park [autoParkTags]="eAutoPark"></app-tag-auto-park>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="editAge">Age:</label>
+          <div class="col-sm-10">
+            <input id="editAge" class="form-control" [(ngModel)]="eAutoPark.age" placeholder="age"/>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="inputDriver">Driver:</label>
+          <div class="col-sm-10">
+            <select id="inputDriver" class="form-control" [(ngModel)]="eAutoPark.driver_id">
+              <option *ngFor="let driver of drivers" value="{{driver.id}}"
+                      [selected]="driver.id == autoPark.driver_id">
+                {{driver.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="inputRoute">Route:</label>
+          <div class="col-sm-10">
+            <select id="inputRoute" class="form-control" [(ngModel)]="eAutoPark.route_id">
+              <option *ngFor="let route of routes" value="{{route.id}}"
+                      [selected]="route.id == autoPark.route_id">
+                {{route.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="inputTypeCar">Car:</label>
+          <div class="col-sm-10">
+            <select id="inputTypeCar" class="form-control" [(ngModel)]="eAutoPark.type_car_id">
+              <option *ngFor="let typeCar of typeCars" value="{{typeCar.id}}"
+                      [selected]="typeCar.id == autoPark.type_car_id">
+                {{typeCar.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="inputTypeState">State:</label>
+          <div class="col-sm-10">
+            <select id="inputTypeState" class="form-control" [(ngModel)]="eAutoPark.type_state_id">
+              <option *ngFor="let typeState of typeStates" value="{{typeState.id}}"
+                      [selected]="typeState.id == autoPark.type_state_id">
+                {{typeState.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="inputTypeStatus">Status:</label>
+          <div class="col-sm-10">
+            <select id="inputTypeStatus" class="form-control" [(ngModel)]="eAutoPark.type_status_id">
+              <option *ngFor="let typeStatus of typeStatuses" value="{{typeStatus.id}}"
+                      [selected]="typeStatus.id == autoPark.type_status_id">
+                {{typeStatus.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div align="right">
+          <button type="button" class="btn btn-outline-secondary" (click)="updateAutoPark(eAutoPark)">Save</button>
+          <button type="button" class="btn btn-outline-secondary" title="AutoPark" routerLink="/auto-park">Cancel
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <br>
+
+    <div align="right">
+      <button type="button" class="btn btn-outline-secondary" title="ShowHideTags" (click)="showHideTags()">{{showTagsButton}}</button>
+    </div>
+
+    <div *ngIf="showId">
+      <app-tag-auto-park [autoParkTags]="eAutoPark"></app-tag-auto-park>
+    </div>
+
   </div>
 </div>

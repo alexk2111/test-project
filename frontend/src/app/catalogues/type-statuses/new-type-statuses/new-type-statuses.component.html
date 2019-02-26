@@ -1,12 +1,19 @@
-<p>
-  <!--new-type-statuses works!-->
-</p>
-<div>
-  <div>
-    <label>Name: </label>
-    <input [(ngModel)]="typeStatus.name" placeholder="name"/>
+<div class="container">
+  <br>
+  <h1 align="center">New TypeStatuses</h1>
+  <br>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="editName">Name: </label>
+        <div class="col-sm-10">
+          <input id="editName" class="form-control" [(ngModel)]="typeStatus.name" placeholder="name"/>
+        </div>
+      </div>
+      <div align="right">
+        <button type="button" class="btn btn-outline-secondary" (click)="saveTypeStatus(typeStatus)">Save</button>
+        <button type="button" class="btn btn-outline-secondary" routerLink="/type-statuses">Cancel</button>
+      </div>
+    </div>
   </div>
-  <p>
-    <button (click)="saveTypeStatus(typeStatus)">Save</button>
-  </p>
 </div>
