@@ -23,18 +23,11 @@ export class LoginComponent implements OnInit {
 
   login(userEmail, userPassword) {
     this.authService.login(userEmail, userPassword).subscribe(data => {
-      // console.log(data);
       this.authService.saveToken(data);
       this.router.navigate(['/auto-park']);
     }, error => {
-      // console.log(error.error.Login);
-      this.error = error.error.Login;
-      // this.router.navigate(['/cars']);
+      this.error = error.error.error;
     });
-  }
-
-  clearError() {
-    this.error = '';
   }
 
 }

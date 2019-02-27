@@ -4,12 +4,21 @@
     <div class="row form-group justify-content-end">
       <label class="col-md-1 col-form-label" for="editTag">Tag: </label>
       <div class="input-group col-md-6">
-        <input id="editTag" class="form-control" [(ngModel)]="newTag" placeholder="name"/>
+        <input id="editTag" name="editTag" class="form-control" [(ngModel)]="newTag" placeholder="tag"
+               required #editTag="ngModel"/>
         <div class="input-group-append">
           <button type="button" class="btn btn-outline-secondary" title="NewTag" (click)="addNewTag(newTag)">Add
           </button>
         </div>
       </div>
+      <div class="input-group col-md-6">
+        <div *ngIf="editTag.invalid && (editTag.dirty || editTag.touched)"
+             class="text-danger">
+          Field is required.
+        </div>
+      </div>
+    </div>
+    <div class="row form-group justify-content-end">
     </div>
     <div class="row justify-content-center">
       <div class="col-12">

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -16,10 +17,13 @@ class AuthController extends Controller
     {
         try {
             $user = User::where(User::FIELD_EMAIL, request(User::FIELD_EMAIL))
-                ->where(User::FIELD_PASSWORD, request(User::FIELD_PASSWORD))
+//                ->where(User::FIELD_PASSWORD, request(User::FIELD_PASSWORD))
                 ->firstOrFail();
+            if(!Hash::check(request(User::FIELD_PASSWORD), $user->password)) {
+                return response()->json(["error" => 'Bad login or password'], 400);
+            }
         } catch (ModelNotFoundException $e) {
-            return response()->json(["Login" => "Bad login or password"], 400);
+            return response()->json(["error" => 'Bad login or password'], 400);
         }
 
         $token = Str::random(32);

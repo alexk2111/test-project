@@ -1,15 +1,3 @@
-<!--<div *ngIf="typeCar as eTypeCar">-->
-  <!--<div>-->
-    <!--<label>Id: </label>{{ eTypeCar.id }}</div>-->
-  <!--<div>-->
-    <!--<label>Name: </label>-->
-    <!--<input [(ngModel)]="eTypeCar.name" placeholder="name"/>-->
-  <!--</div>-->
-  <!--<p>-->
-    <!--<button (click)="updateTypeCar(eTypeCar)">Save</button>-->
-  <!--</p>-->
-<!--</div>-->
-
 <div class="container">
   <br>
   <h1 align="center">Edit Car</h1>
@@ -26,7 +14,12 @@
         <div class="form-group row">
           <label class="col-sm-2 col-form-label" for="editName">Name:</label>
           <div class="col-sm-10">
-            <input id="editName" class="form-control" [(ngModel)]="eTypeCar.name" placeholder="name"/>
+            <input id="editName" name="editName" class="form-control" [(ngModel)]="eTypeCar.name" placeholder="name"
+                   required #editName="ngModel"/>
+            <div *ngIf="editName.invalid && (editName.dirty || editName.touched)"
+                 class="text-danger">
+              Field is required.
+            </div>
           </div>
         </div>
 

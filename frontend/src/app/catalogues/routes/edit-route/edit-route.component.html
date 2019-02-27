@@ -14,7 +14,12 @@
         <div class="form-group row">
           <label class="col-sm-2 col-form-label" for="editName">Name:</label>
           <div class="col-sm-10">
-            <input id="editName" class="form-control" [(ngModel)]="eRoute.name" placeholder="name"/>
+            <input id="editName" name="editName" class="form-control" [(ngModel)]="eRoute.name" placeholder="name"
+                   required #editName="ngModel"/>
+            <div *ngIf="editName.invalid && (editName.dirty || editName.touched)"
+                 class="text-danger">
+              Field is required.
+            </div>
           </div>
         </div>
 
@@ -26,15 +31,3 @@
     </div>
   </div>
 </div>
-
-<!--<div *ngIf="route as eRoute">-->
-  <!--<div>-->
-    <!--<label>Id: </label>{{ eRoute.id }}</div>-->
-  <!--<div>-->
-    <!--<label>Name: </label>-->
-    <!--<input [(ngModel)]="eRoute.name" placeholder="name"/>-->
-  <!--</div>-->
-  <!--<p>-->
-    <!--<button (click)="updateRoute(eRoute)">Save</button>-->
-  <!--</p>-->
-<!--</div>-->
