@@ -13,15 +13,21 @@ class AutoParksController extends Controller
 {
     public function index()
     {
-        return response()->json((AutoPark::with('driver', 'route', 'typeCar', 'typeState', 'typeStatus', 'tags', 'logs')->get()), 200);
+        return response()->json((AutoPark::with('driver', 'route', 'typeCar', 'typeState', 'typeStatus', 'tags', 'logs')
+            ->orderBy(AutoPark::FIELD_ID)
+            ->get()),
+            200
+        );
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         AutoPark::destroy($id);
         return response()->json(('success'), 200);
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         return response()->json((AutoPark::with('driver', 'route', 'typeCar', 'typeState', 'typeStatus', 'tags', 'logs')->find($id)), 200);
     }
 
@@ -30,7 +36,7 @@ class AutoParksController extends Controller
         if (!$autoPark = AutoPark::find($id)) {
             $autoPark = new AutoPark;
         } else {
-            if ($log = Log::where('auto_park_id', $id )->where('finish_date', null)->first()){
+            if ($log = Log::where('auto_park_id', $id)->where('finish_date', null)->first()) {
                 $log->finish_date = Carbon::now('UTC');
                 $log->save();
             }
@@ -38,8 +44,8 @@ class AutoParksController extends Controller
 
         Validator::make($request->all(), [
             AutoPark::FIELD_NAME => 'required',
-            AutoPark::FIELD_DRIVER_ID  => 'required',
-            AutoPark::FIELD_ROUTE_ID  => 'required',
+            AutoPark::FIELD_DRIVER_ID => 'required',
+            AutoPark::FIELD_ROUTE_ID => 'required',
             AutoPark::FIELD_TYPE_CAR_ID => 'required',
             AutoPark::FIELD_TYPE_STATE_ID => 'required',
             AutoPark::FIELD_TYPE_STATUS_ID => 'required',

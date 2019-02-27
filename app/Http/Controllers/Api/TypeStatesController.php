@@ -17,7 +17,7 @@ class TypeStatesController extends Controller
     public function index()
     {
         //Return all TypeState
-        return response()->json((TypeState::get()), 200);
+        return response()->json((TypeState::orderBy(TypeState::FIELD_ID)->get()), 200);
     }
 
     /**

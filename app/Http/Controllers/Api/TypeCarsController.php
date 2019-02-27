@@ -17,7 +17,7 @@ class TypeCarsController extends Controller
     public function index()
     {
         //Return all TypeCar
-        return response()->json((TypeCar::get()), 200);
+        return response()->json((TypeCar::orderBy(TypeCar::FIELD_ID)->get()), 200);
     }
 
     /**

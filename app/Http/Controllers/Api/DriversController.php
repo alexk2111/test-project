@@ -17,7 +17,7 @@ class DriversController extends Controller
     public function index()
     {
         //Return all drivers
-        return response()->json((Driver::get()), 200);
+        return response()->json((Driver::orderBy(Driver::FIELD_ID)->get()), 200);
     }
 
     /**

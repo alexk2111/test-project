@@ -17,7 +17,7 @@ class RoutesController extends Controller
     public function index()
     {
         //Return all Routes
-        return response()->json((Route::get()), 200);
+        return response()->json((Route::orderBy(Route::FIELD_ID)->get()), 200);
     }
 
     /**
